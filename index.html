@@ -84,8 +84,10 @@ body.votes-on .vote{display:inline-flex}
 .vb[aria-pressed="true"].up{background:var(--vert);border-color:var(--vert);color:var(--surface)}
 .vb[aria-pressed="true"].down{background:var(--rouge);border-color:var(--rouge);color:var(--surface)}
 .vb:disabled{opacity:.5;cursor:wait}
-.qui{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;background:var(--accent-soft);border-radius:10px;padding:12px 14px}
-.qui .note{flex:1 1 100%}
+.qui{display:block;background:var(--accent-soft);border-radius:10px;padding:12px 14px}
+.qui .note{max-width:none;margin-bottom:10px}
+.qui label{display:block;font-weight:600;margin-bottom:4px}
+.qui .row{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
 .qui input{font:inherit;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-width:0;width:12em}
 @media print{.vote,.qui{display:none!important}}
 .printonly{display:none}
@@ -120,7 +122,7 @@ body.votes-on .vote{display:inline-flex}
   <section>
     <h2>La sélection</h2>
     <div class="legend"><span class="piste p1"><i></i>Verte : annonce éprouvée</span><span class="piste p2"><i></i>Bleue : un point à confirmer</span><span class="piste p3"><i></i>Rouge : à contrôler avant tout</span></div>
-    <div class="qui" id="quibox" hidden><p class="note">Donne ton avis avec 👍 ou 👎 sur chaque annonce : le classement « Votes » en tient compte pour tout le monde. Un vote par personne et par annonce, modifiable à tout moment (recliquer annule).</p><label for="qui">Ton prénom</label> <input id="qui" type="text" maxlength="30" autocomplete="given-name" placeholder="ex. Camille"> <span class="note" id="quistat"></span></div>
+    <div class="qui" id="quibox" hidden><p class="note">Donne ton avis avec 👍 ou 👎 sur chaque annonce : le classement « Votes » en tient compte pour tout le monde. Un vote par personne et par annonce, modifiable à tout moment (recliquer annule).</p><label for="qui">Ton prénom</label><div class="row"><input id="qui" type="text" maxlength="30" autocomplete="given-name" placeholder="ex. Camille"><span class="note" id="quistat" style="margin:0"></span></div></div>
     <div class="controls" id="controls" hidden>
       <button class="chip" id="f-all" data-f="all" aria-pressed="true">Toutes</button>
       <button class="chip" id="f-fav" data-f="fav" aria-pressed="false">Coups de cœur</button>
